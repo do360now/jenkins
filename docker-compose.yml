@@ -1,0 +1,48 @@
+version: "3.7"
+
+services:
+  jenkins:
+    user: jenkins
+    image: do360now/jenkins:0.0.1
+    ports:
+      - 8080:8080
+      - 5000:5000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      # - ./:/home
+      
+  # sonarqube:
+  #   image: sonarqube:8-community
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     MYSQL_HOST: mysql
+  #     MYSQL_USER: sonar
+  #     MYSQL_PASSWORD: secret
+  #     MYSQL_DB: sonarqube
+  #   volumes:
+  #     - sonarqube_data:/opt/sonarqube/data
+  #     - sonarqube_extensions:/opt/sonarqube/extensions
+  #     - sonarqube_logs:/opt/sonarqube/logs
+  #     - sonarqube_temp:/opt/sonarqube/temp
+  #   ports:
+  #     - "9000:9000"
+  # mysql:
+  #   image: mysql:5.7
+  #   volumes:
+  #     - todo-mysql-data:/var/lib/mysql
+  #   environment: 
+  #     MYSQL_ROOT_PASSWORD: secret
+  #     MYSQL_DATABASE: sonarqube
+
+
+
+volumes:
+  jenkins_home:
+  # sonarqube_data:
+  # sonarqube_extensions:
+  # sonarqube_logs:
+  # sonarqube_temp:
+  # postgresql:
+  # postgresql_data:
