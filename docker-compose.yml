@@ -3,7 +3,7 @@ version: "3.7"
 services:
   jenkins:
     user: jenkins
-    image: do360now/jenkins:0.0.1
+    image: jenkins/jenkins:lts
     ports:
       - 8080:8080
       - 5000:5000
