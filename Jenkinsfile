@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cat "/etc/*release*"
+               sh "cat /etc/*release*"
             }
         }
     }
