@@ -10,12 +10,26 @@
 // }
 
 pipeline {
-    agent { docker 'maven:3-alpine' } 
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     stages {
-        stage('Example Build') {
+        stage('Test') {
             steps {
-                sh 'mvn -B clean verify'
+                sh 'node --version'
             }
         }
     }
 }
+
+
+// pipeline {
+//     agent { docker 'maven:3-alpine' } 
+//     stages {
+//         stage('Example Build') {
+//             steps {
+//                 sh 'mvn -B clean verify'
+//             }
+//         }
+//     }
+// }
