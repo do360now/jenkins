@@ -8,8 +8,15 @@ RUN apt-get update -qq && apt-get install -qqy \
     lxc \
     iptables
     
-RUN curl -sSL https://get.docker.com/ | sh
+RUN mkdir download
+RUN cd download
+COPY ./get-docker.sh /download/get-docker.sh
+
+RUN chmod +x ./download/get-docker.sh
+RUN ./download/get-docker.sh
 
 RUN usermod -aG docker jenkins
 
-CMD dockerd
+USER jenkins
+
+# CMD dockerd

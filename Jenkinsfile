@@ -1,21 +1,21 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-               sh "cat /etc/*release*"
-            }
-        }
-    }
-}
-
 // pipeline {
-//     agent { docker 'maven:3-alpine' } 
+//     agent any
 //     stages {
-//         stage('Example Build') {
+//         stage('Build') {
 //             steps {
-//                 sh 'mvn -B clean verify'
+//                sh "cat /etc/*release*"
 //             }
 //         }
 //     }
 // }
+
+pipeline {
+    agent { docker 'maven:3-alpine' } 
+    stages {
+        stage('Example Build') {
+            steps {
+                sh 'mvn -B clean verify'
+            }
+        }
+    }
+}
